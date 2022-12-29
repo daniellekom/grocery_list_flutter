@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import 'home_page.dart';
 
 class IntroPage extends StatelessWidget {
@@ -26,7 +25,7 @@ class IntroPage extends StatelessWidget {
               style: GoogleFonts.notoSerif(fontSize: 40, fontWeight: FontWeight.bold),
             ),
           ),
-          SizedBox(
+          const SizedBox(
             height: 24,
           ),
           // subtitle
