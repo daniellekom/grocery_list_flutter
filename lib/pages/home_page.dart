@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import '../components/grocery_item_tile.dart';
 import '../model/cart_model.dart';
+import 'cart_page.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -12,9 +13,16 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },child: Icon(Icons.shopping_bag),
+        onPressed: () => Navigator.push(context, MaterialPageRoute(
+          builder: (context) {
+            return CartPage();
+          },
+        )),
+        backgroundColor: Colors.black,
+        child: const Icon(
+          Icons.shopping_bag,
+          color: Colors.white,
+        ),
       ),
       body: SafeArea(
         child: Column(
@@ -77,6 +85,9 @@ class HomePage extends StatelessWidget {
                         itemPrice: value.shopItems[index][1],
                         imagePath: value.shopItems[index][2],
                         color: value.shopItems[index][3],
+                        onPressed: () {
+                          Provider.of<CartModel>(context, listen: false).addItemToCart(index);
+                        },
                       );
                     },
                   );
